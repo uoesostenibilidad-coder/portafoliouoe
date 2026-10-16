@@ -68,6 +68,39 @@ p { margin: 0; }
 .gate-logo { position: absolute; z-index: 1; top: calc(28px + env(safe-area-inset-top, 0px)); left: var(--gutter-l); right: var(--gutter-r); }
 .gate-logo img { width: 100%; height: auto; filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.5)); }
 
+/* ---------- Registro ---------- */
+#registro { background: var(--green-900); color: #FFFFFF; position: relative; overflow: hidden; }
+#registro::before { content: ""; position: absolute; width: 520px; height: 520px; right: -260px; top: 180px; border-radius: 50%; border: 2px solid rgba(159, 211, 107, 0.14); box-shadow: 0 0 0 70px rgba(159, 211, 107, 0.04); pointer-events: none; }
+.reg-banner { position: relative; }
+.reg-banner img { width: 100%; height: auto; display: block; }
+.reg-banner::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 28px; background: linear-gradient(180deg, rgba(4, 47, 26, 0), var(--green-900)); }
+.reg-body { position: relative; padding-block: 18px 34px; display: flex; flex-direction: column; gap: 18px; }
+.reg-body h1 { font-size: 34px; line-height: 1.0; font-weight: 800; letter-spacing: -0.04em; }
+.reg-body h1 span { color: var(--leaf); }
+.reg-body .lead { color: rgba(255, 255, 255, 0.84); }
+.reg-form { display: flex; flex-direction: column; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.92); }
+.field label small { font-weight: 400; color: rgba(255, 255, 255, 0.6); }
+.field .box { position: relative; }
+.field .box svg { position: absolute; left: 14px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); pointer-events: none; }
+.field input { width: 100%; min-height: 52px; padding: 0 14px 0 44px; border-radius: 14px; border: 1.5px solid rgba(159, 211, 107, 0.35); background: rgba(255, 255, 255, 0.07); color: #FFFFFF; font: 500 16px var(--body); transition: border-color .15s ease, background .15s ease; }
+.field input::placeholder { color: rgba(255, 255, 255, 0.45); }
+.field input:focus { outline: none; border-color: var(--leaf); background: rgba(255, 255, 255, 0.12); }
+.field[data-error] input { border-color: #F08A7E; }
+.field .err { font-size: 12.5px; color: #F7B0A7; min-height: 0; }
+.consent { border-radius: 16px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.consent strong { font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: var(--leaf); }
+.consent .legal-text { max-height: 132px; overflow-y: auto; font-size: 12px; line-height: 1.5; color: rgba(255, 255, 255, 0.78); padding-right: 6px; }
+.consent .legal-text p + p { margin-top: 8px; }
+.consent .legal-text a { color: var(--leaf); }
+.check { display: flex; align-items: center; gap: 12px; min-height: 44px; cursor: pointer; font-weight: 600; font-size: 15px; }
+.check input { width: 24px; height: 24px; accent-color: var(--leaf); flex: none; margin: 0; }
+.consent[data-error] { border-color: #F08A7E; }
+.reg-submit { margin-top: 4px; }
+.reg-submit[disabled] { opacity: 0.7; cursor: progress; }
+.reg-status { font-size: 13.5px; text-align: center; color: #F7B0A7; min-height: 1em; }
+
 /* ---------- Inicio ---------- */
 #inicio { background: var(--green-900); color: #FFFFFF; }
 .home-hero { position: relative; height: 430px; overflow: hidden; }
@@ -205,8 +238,63 @@ p { margin: 0; }
 
 <div class="app">
 
+<!-- ================= REGISTRO ================= -->
+<section class="screen" id="registro" aria-labelledby="t-registro">
+  <div class="reg-banner">
+    <img src="img/encabezado.jpg" alt="COMFACESAR · Unidad de Sostenibilidad, con integrantes del equipo y sus reconocimientos Supernova" width="1600" height="400">
+  </div>
+  <div class="reg-body pad">
+    <span class="eyebrow" style="color: var(--leaf)">Portafolio de servicios</span>
+    <h1 id="t-registro">Conoce cómo podemos <span>colaborar juntos</span></h1>
+    <p class="lead">Déjanos tus datos y entra a nuestro portafolio. Nuestro equipo podrá contactarte para acompañar a tu empresa.</p>
+
+    <form class="reg-form" id="reg-form" novalidate>
+      <div class="field" id="f-nombre">
+        <label for="in-nombre">Nombres y apellidos</label>
+        <div class="box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="#9FD36B" stroke-width="1.8"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" fill="none" stroke="#9FD36B" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="in-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej.: Ana María Pérez" required></div>
+        <span class="err" aria-live="polite"></span>
+      </div>
+      <div class="field" id="f-correo">
+        <label for="in-correo">Correo electrónico</label>
+        <div class="box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6" fill="none" stroke="#9FD36B" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <input id="in-correo" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="nombre@empresa.com" required></div>
+        <span class="err" aria-live="polite"></span>
+      </div>
+      <div class="field" id="f-celular">
+        <label for="in-celular">Número de celular</label>
+        <div class="box"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5" fill="none" stroke="#9FD36B" stroke-width="1.8"/><path d="M11 18.5h2" stroke="#9FD36B" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="in-celular" name="celular" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ej.: 300 123 4567" required></div>
+        <span class="err" aria-live="polite"></span>
+      </div>
+      <div class="field" id="f-empresa">
+        <label for="in-empresa">¿Perteneces a alguna empresa? ¿Cuál? <small>(opcional)</small></label>
+        <div class="box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V7l8-4 8 4v14M9 21v-5h6v5M8 10h2M14 10h2" fill="none" stroke="#9FD36B" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          <input id="in-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nombre de tu empresa"></div>
+      </div>
+
+      <div class="consent" id="f-autoriza">
+        <strong>AUTORIZACIÓN PARA EL TRATAMIENTO DE DATOS PERSONALES</strong>
+        <div class="legal-text" tabindex="0" aria-label="Texto de la autorización">
+          <p>Autorizo de manera previa, expresa e informada a la UOE Sostenibilidad de COMFACESAR en los términos establecidos por la ley estatutaria 1581 de 2012 y reglamentada por el decreto 1377 de 2013, para recolectar, almacenar y tratar los datos suministrados, con el fin de que pueda ser contactado para recibir oferta de servicios de la Unidad Operativa Estratégica de Sostenibilidad, de conformidad con la normatividad vigente.</p>
+          <p>Para conocer nuestra política de tratamiento de datos personales y los derechos del titular, consulte: <a href="https://comfacesar.com/articulo.aspx?idc=513" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales de COMFACESAR</a>.</p>
+          <p>Como titular, podrá ejercer su derecho de acceso, rectificación o supresión de la autorización, a través de los correos asuntoslegales@comfacesar.com y uoesostenibilidad@comfacesar.com o presencialmente en las oficinas de asuntos legales de COMFACESAR ubicada en la carrera 9 # 16A – 48 Valledupar - Cesar.</p>
+        </div>
+        <label class="check" for="in-autoriza"><input id="in-autoriza" name="autoriza" type="checkbox" required> Autorizo</label>
+        <span class="err" aria-live="polite" style="font-size:12.5px;color:#F7B0A7"></span>
+      </div>
+
+      <button type="submit" class="btn btn-leaf reg-submit" id="reg-submit">
+        <span>Ver el portafolio</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="reg-status" id="reg-status" aria-live="assertive"></p>
+    </form>
+  </div>
+</section>
+
 <!-- ================= INICIO ================= -->
-<section class="screen" id="inicio" aria-labelledby="t-inicio">
+<section class="screen" id="inicio" hidden aria-labelledby="t-inicio">
   <div class="home-hero">
     <img class="photo" src="img/campo-equipo.jpg" alt="Equipo de la Unidad en recorrido de campo bajo árboles">
     <div class="gate-logo"><img src="img/logo-uoe-claro.png" alt="COMFACESAR · Unidad de Sostenibilidad"></div>
@@ -425,16 +513,93 @@ p { margin: 0; }
 
 <script>
 (function () {
-  var SCREENS = ["inicio", "uniformando", "eventos", "obras", "contacto"];
+  // Destino de los registros: el formulario de Google "Registro · Portafolio UOE Sostenibilidad",
+  // cuyas respuestas llegan a la hoja "Registros · Portafolio UOE Sostenibilidad".
+  // Si se editan las preguntas de ese formulario, estos identificadores pueden cambiar.
+  var FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLScnwH8UfuDad0CEaLJvm3y4prZ8xf2qfMCooL3bad0sNxRnYg/formResponse";
+  var ENTRY = { nombre: "entry.497229999", correo: "entry.651345856", celular: "entry.1694559839", empresa: "entry.639949381", autoriza: "entry.625171115" };
+  var REG_KEY = "uoe-registrado";
+
+  function isRegistered() { try { return localStorage.getItem(REG_KEY) === "1"; } catch (e) { return false; } }
+  function markRegistered() { try { localStorage.setItem(REG_KEY, "1"); } catch (e) {} }
+  var registered = isRegistered();
+
+  var SCREENS = ["registro", "inicio", "uniformando", "eventos", "obras", "contacto"];
   function show(id, focusTop) {
-    if (SCREENS.indexOf(id) < 0) id = "inicio";
+    if (!registered) id = "registro";
+    else if (SCREENS.indexOf(id) < 0 || id === "registro") id = "inicio";
     SCREENS.forEach(function (s) { document.getElementById(s).hidden = s !== id; });
     document.querySelectorAll("video").forEach(function (v) { if (!v.closest("#" + id)) v.pause(); });
     if (focusTop) window.scrollTo(0, 0);
   }
 
+  var wanted = location.hash.slice(1);
   window.addEventListener("hashchange", function () { show(location.hash.slice(1), true); });
-  show(location.hash.slice(1), false);
+  show(wanted, false);
+
+  // Registro
+  var form = document.getElementById("reg-form");
+  var submitBtn = document.getElementById("reg-submit");
+  var status = document.getElementById("reg-status");
+
+  function setError(fieldId, msg) {
+    var f = document.getElementById(fieldId);
+    var e = f.querySelector(".err");
+    if (msg) { f.setAttribute("data-error", ""); if (e) e.textContent = msg; }
+    else { f.removeAttribute("data-error"); if (e) e.textContent = ""; }
+    return !msg;
+  }
+
+  function validate() {
+    var nombre = form.nombre.value.trim();
+    var correo = form.correo.value.trim();
+    var celular = form.celular.value.replace(/[\s\-().]/g, "");
+    var ok = true, first = null;
+    function check(id, msg, input) { var good = setError(id, msg); if (!good && !first) first = input; ok = ok && good; }
+    check("f-nombre", nombre.length < 3 || nombre.indexOf(" ") < 0 ? "Escribe tu nombre y apellido." : "", form.nombre);
+    check("f-correo", /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo) ? "" : "Escribe un correo válido, por ejemplo nombre@empresa.com", form.correo);
+    check("f-celular", /^(\+?57)?3\d{9}$/.test(celular) || /^\+?\d{7,15}$/.test(celular) ? "" : "Escribe un número de celular válido, por ejemplo 300 123 4567.", form.celular);
+    check("f-autoriza", form.autoriza.checked ? "" : "Para continuar debes marcar la autorización de tratamiento de datos.", form.autoriza);
+    if (first) first.focus();
+    return ok ? { nombre: nombre, correo: correo, celular: celular, empresa: form.empresa.value.trim() } : null;
+  }
+
+  ["nombre", "correo", "celular"].forEach(function (n) {
+    form[n].addEventListener("input", function () { setError("f-" + n, ""); });
+  });
+  form.autoriza.addEventListener("change", function () { setError("f-autoriza", ""); });
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    status.textContent = "";
+    var data = validate();
+    if (!data) return;
+    var body = new URLSearchParams();
+    body.append(ENTRY.nombre, data.nombre);
+    body.append(ENTRY.correo, data.correo);
+    body.append(ENTRY.celular, data.celular);
+    body.append(ENTRY.empresa, data.empresa);
+    body.append(ENTRY.autoriza, "Autorizo");
+    body.append("fvv", "1");
+    body.append("pageHistory", "0");
+    submitBtn.disabled = true;
+    submitBtn.firstElementChild.textContent = "Enviando…";
+    fetch(FORM_ACTION, { method: "POST", mode: "no-cors", body: body })
+      .then(function () {
+        registered = true;
+        markRegistered();
+        var dest = wanted && wanted !== "registro" ? wanted : "inicio";
+        if (location.hash.slice(1) === dest) show(dest, true); else location.hash = dest;
+        window.scrollTo(0, 0);
+      })
+      .catch(function () {
+        status.textContent = "No pudimos enviar tus datos. Revisa tu conexión a internet e inténtalo de nuevo.";
+      })
+      .then(function () {
+        submitBtn.disabled = false;
+        submitBtn.firstElementChild.textContent = "Ver el portafolio";
+      });
+  });
 
   // Fichas de producto
   var NAMES = { bolso: "Bolso", cartuchera: "Cartuchera", tula: "Tula" };
