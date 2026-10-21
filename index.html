@@ -230,6 +230,136 @@ p { margin: 0; }
 .logo-plate { background: rgba(255, 255, 255, 0.86); border-radius: 22px; padding: 22px 18px; }
 .logo-plate img { width: 100%; height: auto; }
 
+/* Desktop-only hooks: invisible to the phone layout */
+.topnav .nav-brand, .topnav .nav-cta { display: none; }
+.body-grid, .col-main, .col-side { display: contents; }
+
+/* =====================================================================
+   VISTA DE ESCRITORIO (≥ 1024 px). Nada de esto aplica en celular.
+   Layout: contenido en un contenedor de 1200 px; fotos a todo el ancho;
+   líneas de trabajo en dos columnas (contenido | video y galería).
+   ===================================================================== */
+@media (min-width: 1024px) {
+  :root {
+    --gutter-l: max(48px, calc((100vw - 1200px) / 2));
+    --gutter-r: max(48px, calc((100vw - 1200px) / 2));
+  }
+  body { font-size: 16px; }
+  .app { max-width: none; box-shadow: none; overflow: clip; }
+  .screen { min-height: 100vh; }
+  .lead { font-size: 18px; max-width: 56ch; }
+  .btn { min-height: 56px; font-size: 17px; }
+
+  /* ---------- Registro: imagen | formulario ---------- */
+  #registro { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); align-items: stretch; }
+  #registro::before { right: -200px; top: 50%; transform: translateY(-50%); }
+  .reg-banner { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  .reg-banner img { height: 100%; width: 100%; object-fit: cover; object-position: 50% 0%; }
+  .reg-banner::after { top: 0; bottom: 0; left: auto; right: 0; width: 48px; height: auto; background: linear-gradient(90deg, rgba(4, 47, 26, 0), var(--green-900)); }
+  .reg-body { align-self: center; width: 100%; max-width: 600px; padding: 64px 64px 64px 56px; gap: 20px; }
+  .reg-body h1 { font-size: 52px; }
+  .reg-form { gap: 16px; }
+  .consent .legal-text { max-height: 150px; }
+  .reg-submit { align-self: flex-start; min-width: 280px; }
+
+  /* ---------- Inicio ---------- */
+  .home-hero { height: clamp(520px, 74vh, 760px); }
+  .home-hero .gate-logo { top: 50%; right: auto; width: min(760px, 58vw); transform: translateY(-62%); }
+  .home-hero .tag { bottom: 40px; }
+  .home-hero .tag .eyebrow { font-size: 13px; }
+  .intro-band { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 40px 0 !important; }
+  .intro-band > p { font-size: 22px !important; line-height: 1.5 !important; max-width: 34ch; }
+  .mision { padding: 32px 34px; }
+  .mision strong { font-size: 30px; }
+  .lines { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; padding-block: 88px 0 !important; }
+  .lines h2 { grid-column: 1 / -1; font-size: 52px; margin-bottom: 10px; }
+  .line-card { height: 420px; border-radius: 26px; transition: transform .3s ease, box-shadow .3s ease; }
+  .line-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35); }
+  .line-card::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); }
+  .line-card .row { inset: auto 22px 26px 26px; align-items: flex-end; z-index: 1; }
+  .line-card .name { font-size: 30px; }
+  #inicio .cta-wrap { padding-block: 64px 80px; }
+  #inicio .cta-wrap .btn { width: 340px; margin-inline: auto; }
+
+  /* ---------- Barra superior de las líneas ---------- */
+  .topnav { gap: 8px; padding-block: 14px; }
+  .topnav a { flex: none; padding: 0 22px; font-size: 14px; transition: background .15s ease, color .15s ease; }
+  .topnav a:not(.nav-brand):not([aria-current="page"]):hover { background: #E7EBE2; }
+  .topnav a.back { display: none; }
+  .topnav .nav-brand { display: flex; align-items: center; margin-right: auto; padding: 0 !important; background: transparent !important; border-radius: 0 !important; }
+  .topnav .nav-brand img { height: 46px; width: auto; }
+  .topnav .nav-cta { display: flex; margin-left: 10px; background: var(--ink) !important; color: #FFFFFF !important; }
+
+  /* ---------- Portadas de las líneas ---------- */
+  #uniformando .hero, #eventos .hero, #obras .hero { height: clamp(440px, 60vh, 620px) !important; }
+  .hero .cap { bottom: 48px; }
+  .hero h1 { font-size: 68px; }
+  .hero .eyebrow { font-size: 13px; }
+  #eventos .hero .shade, #obras .hero .shade { background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 55%), linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, var(--hero-shade) 100%); }
+
+  /* ---------- Cuerpo en dos columnas ---------- */
+  .body-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 0 64px; align-items: start; padding-inline: var(--gutter-l) var(--gutter-r); padding-block: 24px 0; }
+  .col-main, .col-side { display: flex; flex-direction: column; min-width: 0; }
+  .body-grid .pad { padding-left: 0; padding-right: 0; }
+  .section { padding-block: 36px 0; gap: 16px; }
+  .intro-strong { font-size: 30px; }
+  .tile { padding: 24px 22px; min-height: 190px; }
+  .tile h3 { font-size: 20px; }
+  .tile p { font-size: 14.5px; }
+  .grid2, .grid3 { gap: 14px; }
+  .mini { padding: 20px 12px; font-size: 13.5px; }
+  .video-box { width: min(100%, calc((100vh - 150px) * 9 / 16)); margin-inline: auto; }
+  .photos img { height: 190px; }
+  .photos .wide { height: 260px; }
+  .cta-wrap { padding-block: 56px 72px; }
+  .cta-wrap .btn { width: 380px; margin-inline: auto; }
+
+  /* Uniformando */
+  .brand-card { margin: -150px auto 0; width: min(640px, calc(100% - 96px)); padding: 34px 44px 30px; }
+  .brand-card p { font-size: 18px; }
+  .stat { padding: 26px 24px; }
+  .stat b { font-size: 54px; }
+  .stat span { font-size: 15px; }
+  .shield { padding: 26px 28px; }
+  .shield strong { font-size: 22px; }
+  .shield span { font-size: 14.5px; }
+  .flow .box { padding: 18px 22px; }
+  .flow .box b { font-size: 19px; }
+  .flow .box span { font-size: 14.5px; }
+  .product img { height: 210px; }
+  .product { transition: transform .2s ease, box-shadow .2s ease; }
+  .product:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(26, 20, 20, 0.16); }
+  .product span { font-size: 16px; padding: 14px; }
+  .sheet { justify-content: center; align-items: center; padding: 32px; }
+  .sheet .panel { max-width: 560px; border-radius: 26px; padding: 22px 26px 26px; }
+  .sheet .grip { display: none; }
+  .sheet img { height: min(62vh, 520px); }
+
+  /* Eventos */
+  .timeline { padding: 26px 26px; }
+  .timeline strong { font-size: 20px; }
+  .timeline span { font-size: 15px; }
+
+  /* Obras */
+  .phases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .phase { padding: 22px 20px; align-items: flex-start; }
+  .phase strong { font-size: 19px; }
+  .phase span { font-size: 14px; }
+
+  /* ---------- Contacto: foto | datos ---------- */
+  #contacto { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); grid-template-rows: 1fr auto auto 1fr; }
+  #contacto .hero { grid-row: 1 / -1; height: auto; min-height: 100vh; }
+  #contacto .hero .shade { background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(4, 74, 37, 0.9) 100%); }
+  #contacto .hero .cap { left: 48px; right: 48px; bottom: 48px; }
+  #contacto .hero h1 { font-size: 60px; max-width: 11ch; }
+  .back-float { top: 24px; left: 24px; }
+  #contacto > .stack { grid-row: 2; width: 100%; max-width: 680px; padding: 48px 48px 0 !important; gap: 16px; }
+  #contacto > .pad:last-child { grid-row: 3; width: 100%; max-width: 680px; padding: 32px 48px 48px !important; margin-top: 0 !important; }
+  .contact-item { min-height: 76px; padding: 14px 20px; transition: background .15s ease; }
+  a.contact-item:hover { background: rgba(255, 255, 255, 0.16); }
+  .contact-item b { font-size: 18px; }
+}
+
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
@@ -300,7 +430,7 @@ p { margin: 0; }
     <div class="gate-logo"><img src="img/logo-uoe-claro.png" alt="COMFACESAR · Unidad de Sostenibilidad"></div>
     <div class="tag"><i></i><span class="eyebrow">Portafolio de servicios</span></div>
   </div>
-  <div class="pad stack" style="padding-block: 6px 0">
+  <div class="pad stack intro-band" style="padding-block: 6px 0">
     <p style="font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.92)">Somos la Caja de Compensación Familiar del Cesar, <strong>COMFACESAR</strong>, comprometida en cumplir los sueños de nuestras empresas afiliadas y de la comunidad en general.</p>
     <div class="mision">
       <svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#9FD36B" stroke-width="3"><path d="M100 10C55 10 18 47 18 92c45 0 82-37 82-82z"/><path d="M100 10c45 0 82 37 82 82-45 0-82-37-82-82z"/><path d="M100 100c-45 0-82 37-82 82 45 0 82-37 82-82z"/></g></svg>
@@ -332,14 +462,17 @@ p { margin: 0; }
 <!-- ================= UNIFORMANDO ================= -->
 <section class="screen" id="uniformando" hidden aria-label="Uniformando Sonrisas">
   <nav class="topnav pad" aria-label="Líneas de trabajo" style="background: rgba(246,243,238,0.96)">
+    <a class="nav-brand" href="#inicio" aria-label="Ir al inicio del portafolio"><img src="img/logo-uoe-barra.png" alt="COMFACESAR · Unidad de Sostenibilidad"></a>
     <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="#uniformando" aria-current="page">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras">Obras</a>
+    <a href="#uniformando" aria-current="page">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras">Obras</a><a class="nav-cta" href="#contacto">Conversemos</a>
   </nav>
   <div class="hero" style="height: 250px"><img src="img/uniformando-mesas.jpg" alt="Equipo de la Unidad junto a las mesas de insumos ecológicos"><div class="shade"></div></div>
   <div class="brand-card">
     <h1 style="width: 100%"><img src="img/logo-uniformando.png" alt="Uniformando Sonrisas"></h1>
     <p>Sus uniformes en desuso, convertidos en artículos útiles con su marca.</p>
   </div>
+  <div class="body-grid">
+  <div class="col-main">
   <div class="pad section">
     <div class="grid2">
       <div class="stat" style="background: var(--uni)"><b>+2.000</b><span>uniformes transformados</span></div>
@@ -371,6 +504,8 @@ p { margin: 0; }
       <button type="button" class="product" data-product="tula"><img src="img/prod-tula.jpg" alt="" style="object-position: 50% 55%"><span>Tula <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="#9B1C24" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
     </div>
   </div>
+  </div>
+  <div class="col-side">
   <div class="pad section" style="padding-top: 30px">
     <div class="video-box"><video src="video/uniformando.mp4" poster="img/poster-uniformando.jpg" controls playsinline preload="none" aria-label="Video del proyecto Uniformando Sonrisas"></video></div>
     <div class="photos">
@@ -378,17 +513,22 @@ p { margin: 0; }
       <img src="img/uniformando-familia.jpg" alt="Entrega de insumos a una familia beneficiaria" loading="lazy">
     </div>
   </div>
+  </div>
+  </div>
   <div class="pad cta-wrap"><a class="btn cta" href="#contacto">Quiero transformar mis uniformes</a></div>
 </section>
 
 <!-- ================= EVENTOS ================= -->
 <section class="screen" id="eventos" hidden aria-label="Gestión sostenible de eventos">
   <nav class="topnav pad" aria-label="Líneas de trabajo" style="background: rgba(241,244,246,0.96)">
+    <a class="nav-brand" href="#inicio" aria-label="Ir al inicio del portafolio"><img src="img/logo-uoe-barra.png" alt="COMFACESAR · Unidad de Sostenibilidad"></a>
     <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="#uniformando">Uniformes</a><a href="#eventos" aria-current="page">Eventos</a><a href="#obras">Obras</a>
+    <a href="#uniformando">Uniformes</a><a href="#eventos" aria-current="page">Eventos</a><a href="#obras">Obras</a><a class="nav-cta" href="#contacto">Conversemos</a>
   </nav>
   <div class="hero"><img src="img/evento-1.jpg" alt="Corredora celebrando durante una carrera atlética" style="object-position: 55% 30%"><div class="shade"></div>
     <div class="cap"><span class="eyebrow" style="color: var(--gold)">Línea 02</span><h1>Gestión sostenible<br>de eventos</h1></div></div>
+  <div class="body-grid">
+  <div class="col-main">
   <div class="pad section">
     <p class="intro-strong">Somos el aliado técnico de los organizadores de eventos.</p>
     <p class="lead">Planificamos, tramitamos y medimos para que su evento sea seguro, esté en regla y sea responsable con el ambiente y la comunidad.</p>
@@ -410,6 +550,8 @@ p { margin: 0; }
       <li><div class="rail"><b style="background:#DDF0C9;color:#2F5A10">3</b></div><div class="txt"><strong>Después</strong><span>Limpieza, medición de impacto e informe de resultados.</span></div></li>
     </ol>
   </div>
+  </div>
+  <div class="col-side">
   <div class="pad section" style="padding-top: 30px">
     <span class="eyebrow">Eventos que hemos acompañado</span>
     <div class="photos">
@@ -419,17 +561,22 @@ p { margin: 0; }
     </div>
     <div class="video-box"><video src="video/eventos.mp4" poster="img/poster-eventos.jpg" controls playsinline preload="none" aria-label="Video de la MMI Sostenible, Media Maratón de la Independencia"></video></div>
   </div>
+  </div>
+  </div>
   <div class="pad cta-wrap"><a class="btn cta" href="#contacto">Planeemos su evento</a></div>
 </section>
 
 <!-- ================= OBRAS ================= -->
 <section class="screen" id="obras" hidden aria-label="Gestión sostenible de obras">
   <nav class="topnav pad" aria-label="Líneas de trabajo">
+    <a class="nav-brand" href="#inicio" aria-label="Ir al inicio del portafolio"><img src="img/logo-uoe-barra.png" alt="COMFACESAR · Unidad de Sostenibilidad"></a>
     <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="#uniformando">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras" aria-current="page">Obras</a>
+    <a href="#uniformando">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras" aria-current="page">Obras</a><a class="nav-cta" href="#contacto">Conversemos</a>
   </nav>
   <div class="hero" style="height: 400px"><img src="img/obra-portada.jpg" alt="Profesionales de la Unidad evaluando árboles en campo en Valledupar" style="object-position: 62% 45%"><div class="shade"></div>
     <div class="cap"><span class="eyebrow" style="color: var(--leaf)">Línea 03</span><h1>Gestión sostenible<br>de obras</h1></div></div>
+  <div class="body-grid">
+  <div class="col-main">
   <div class="pad section">
     <p class="intro-strong">Su aliado técnico en cada etapa de la obra.</p>
     <p class="lead">Experiencia en la formulación y ejecución de planes de manejo ambiental, caracterizaciones sociales y acompañamiento social en construcción.</p>
@@ -454,6 +601,8 @@ p { margin: 0; }
       <div class="mini"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3" fill="none" stroke="#044A25" stroke-width="1.8"/><circle cx="6" cy="18" r="3" fill="none" stroke="#044A25" stroke-width="1.8"/><path d="M8.5 7.5L20 18M8.5 16.5L20 6" fill="none" stroke="#044A25" stroke-width="1.8" stroke-linecap="round"/></svg>Podas técnicas</div>
     </div>
   </div>
+  </div>
+  <div class="col-side">
   <div class="pad section" style="padding-top: 32px">
     <span class="eyebrow">Nuestra gente en campo</span>
     <div class="photos">
@@ -463,6 +612,8 @@ p { margin: 0; }
       <img class="wide" src="img/obra-poda-2.jpg" alt="Integrante de la Unidad realizando poda técnica en altura" loading="lazy" style="height: 190px; object-position: 50% 30%">
     </div>
     <div class="video-box"><video src="video/obras.mp4" poster="img/poster-obras.jpg" controls playsinline preload="none" aria-label="Video de gestión sostenible de obras"></video></div>
+  </div>
+  </div>
   </div>
   <div class="pad cta-wrap"><a class="btn cta" href="#contacto">Hablemos de su obra</a></div>
 </section>
