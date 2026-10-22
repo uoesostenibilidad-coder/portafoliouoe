@@ -230,6 +230,36 @@ p { margin: 0; }
 .logo-plate { background: rgba(255, 255, 255, 0.86); border-radius: 22px; padding: 22px 18px; }
 .logo-plate img { width: 100%; height: auto; }
 
+/* Estudios y soluciones ambientales · Siembra Amor (celular) */
+#estudios { --tone: #0F5E63; --hero-shade: rgba(11, 35, 38, 0.92); background: #EEF5F4; }
+#siembra { --tone: #A3264F; --hero-shade: rgba(60, 14, 30, 0.9); background: #F7F2EE; }
+.svc { border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.svc small { font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.svc-row { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
+.svc-row svg { width: 30px; height: 30px; flex: none; }
+.svc-row b { font-family: var(--display); font-size: 17px; font-weight: 800; line-height: 1.15; display: flex; flex-direction: column; gap: 4px; }
+.svc-row b span { font-family: var(--body); font-size: 13px; font-weight: 400; line-height: 1.4; opacity: 0.88; }
+.svc-big { font-family: var(--display); font-size: 20px; font-weight: 800; line-height: 1.2; }
+.svc-num { display: block; font-family: var(--display); font-size: 34px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { padding: 8px 14px; border-radius: 999px; background: var(--card); font-size: 13px; font-weight: 600; }
+.chips.rose span { background: #F3E3E8; color: #5A1530; }
+.chips.rose span.g { background: #DDEFD0; color: #1F3A26; }
+.law { border-radius: 22px; background: #1F3A26; color: #FFFFFF; padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; }
+.law h2 { font-size: 26px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; }
+.law dl { margin: 4px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.law dl div { border-radius: 16px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); padding: 12px 14px; }
+.law dt { font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--leaf); }
+.law dd { margin: 4px 0 0; font-family: var(--display); font-size: 16px; font-weight: 800; line-height: 1.2; }
+.law small { font-size: 11.5px; color: rgba(255, 255, 255, 0.65); }
+.video-box.landscape { aspect-ratio: 16 / 9; }
+/* Barra de pestañas con 5 líneas: se desliza de lado */
+.topnav { overflow-x: auto; scrollbar-width: none; }
+.topnav::-webkit-scrollbar { display: none; }
+.topnav a { flex: 1 0 auto; padding: 0 14px; }
+.topnav a.back { position: sticky; left: 0; z-index: 1; padding: 0; box-shadow: -20px 0 0 8px var(--nav-bg, #F3F4ED); }
+#uniformando { --nav-bg: #F6F3EE; } #eventos { --nav-bg: #F1F4F6; } #estudios { --nav-bg: #EEF5F4; } #siembra { --nav-bg: #F7F2EE; }
+
 /* Desktop-only hooks: invisible to the phone layout */
 .topnav .nav-brand, .topnav .nav-cta { display: none; }
 .body-grid, .col-main, .col-side { display: contents; }
@@ -370,6 +400,16 @@ p { margin: 0; }
       <div class="shade" style="background: linear-gradient(90deg, rgba(4,47,26,0.95), rgba(4,47,26,0.55) 62%, rgba(4,47,26,0.05))"></div>
       <div class="row"><div><div class="num">03</div><div class="name">Gestión sostenible<br>de obras</div></div><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
     </a>
+    <a class="line-card" href="#estudios">
+      <img src="img/estudios-paneles.jpg" alt="">
+      <div class="shade" style="background: linear-gradient(90deg, rgba(11,60,64,0.95), rgba(11,60,64,0.6) 62%, rgba(11,60,64,0.1))"></div>
+      <div class="row"><div><div class="num">04</div><div class="name">Estudios y soluciones<br>ambientales</div></div><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+    </a>
+    <a class="line-card" href="#siembra">
+      <img src="img/siembra-ninos.jpg" alt="" style="object-position: 50% 40%">
+      <div class="shade" style="background: linear-gradient(90deg, rgba(110,22,52,0.95), rgba(110,22,52,0.55) 62%, rgba(110,22,52,0.1))"></div>
+      <div class="row"><div><div class="num">05</div><div class="name">Siembra<br>Amor</div></div><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+    </a>
   </div>
   <div class="pad cta-wrap"><a class="btn btn-leaf" href="#contacto">Conversemos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 </section>
@@ -379,7 +419,7 @@ p { margin: 0; }
   <nav class="topnav pad" aria-label="Líneas de trabajo" style="background: rgba(246,243,238,0.96)">
     <a class="nav-brand" href="#inicio" aria-label="Ir al inicio del portafolio"><img src="img/logo-uoe-barra.png" alt="COMFACESAR · Unidad de Sostenibilidad"></a>
     <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="#uniformando" aria-current="page">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras">Obras</a><a class="nav-cta" href="#contacto">Conversemos</a>
+    <a href="#uniformando" aria-current="page">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras">Obras</a><a href="#estudios">Estudios</a><a href="#siembra">Siembra</a><a class="nav-cta" href="#contacto">Conversemos</a>
   </nav>
   <div class="hero" style="height: 250px"><img src="img/uniformando-mesas.jpg" alt="Equipo de la Unidad junto a las mesas de insumos ecológicos"><div class="shade"></div></div>
   <div class="brand-card">
@@ -438,7 +478,7 @@ p { margin: 0; }
   <nav class="topnav pad" aria-label="Líneas de trabajo" style="background: rgba(241,244,246,0.96)">
     <a class="nav-brand" href="#inicio" aria-label="Ir al inicio del portafolio"><img src="img/logo-uoe-barra.png" alt="COMFACESAR · Unidad de Sostenibilidad"></a>
     <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="#uniformando">Uniformes</a><a href="#eventos" aria-current="page">Eventos</a><a href="#obras">Obras</a><a class="nav-cta" href="#contacto">Conversemos</a>
+    <a href="#uniformando">Uniformes</a><a href="#eventos" aria-current="page">Eventos</a><a href="#obras">Obras</a><a href="#estudios">Estudios</a><a href="#siembra">Siembra</a><a class="nav-cta" href="#contacto">Conversemos</a>
   </nav>
   <div class="hero"><img src="img/evento-1.jpg" alt="Corredora celebrando durante una carrera atlética" style="object-position: 55% 30%"><div class="shade"></div>
     <div class="cap"><span class="eyebrow" style="color: var(--gold)">Línea 02</span><h1>Gestión sostenible<br>de eventos</h1></div></div>
@@ -486,7 +526,7 @@ p { margin: 0; }
   <nav class="topnav pad" aria-label="Líneas de trabajo">
     <a class="nav-brand" href="#inicio" aria-label="Ir al inicio del portafolio"><img src="img/logo-uoe-barra.png" alt="COMFACESAR · Unidad de Sostenibilidad"></a>
     <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="#uniformando">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras" aria-current="page">Obras</a><a class="nav-cta" href="#contacto">Conversemos</a>
+    <a href="#uniformando">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras" aria-current="page">Obras</a><a href="#estudios">Estudios</a><a href="#siembra">Siembra</a><a class="nav-cta" href="#contacto">Conversemos</a>
   </nav>
   <div class="hero" style="height: 400px"><img src="img/obra-portada.jpg" alt="Profesionales de la Unidad evaluando árboles en campo en Valledupar" style="object-position: 62% 45%"><div class="shade"></div>
     <div class="cap"><span class="eyebrow" style="color: var(--leaf)">Línea 03</span><h1>Gestión sostenible<br>de obras</h1></div></div>
@@ -531,6 +571,130 @@ p { margin: 0; }
   </div>
   </div>
   <div class="pad cta-wrap"><a class="btn cta" href="#contacto">Hablemos de su obra</a></div>
+</section>
+
+<!-- ================= ESTUDIOS ================= -->
+<section class="screen" id="estudios" hidden aria-label="Estudios y soluciones ambientales">
+  <nav class="topnav pad" aria-label="Líneas de trabajo" style="background: rgba(238,245,244,0.96)">
+    <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#uniformando">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras">Obras</a><a href="#estudios" aria-current="page">Estudios</a><a href="#siembra">Siembra</a>
+  </nav>
+  <div class="hero"><img src="img/estudios-piscina.jpg" alt="Profesional de la Unidad midiendo la calidad del agua de una piscina" style="object-position: 50% 45%"><div class="shade"></div>
+    <div class="cap"><span class="eyebrow" style="color: #7FD6D3">Línea 04</span><h1>Estudios y soluciones<br>ambientales</h1></div></div>
+  <div class="pad section">
+    <p class="intro-strong">Medimos, diagnosticamos e implementamos.</p>
+    <p class="lead">Para que su organización use mejor la energía y el agua, mida y reduzca sus emisiones y conozca el valor de su capital natural.</p>
+  </div>
+  <div class="pad section" style="padding-top: 30px">
+    <span class="eyebrow">Lo que ofrecemos</span>
+    <div class="svc" style="background: var(--tone); color: #fff">
+      <small style="color: #F2B134">01 · Eficiencia de recursos</small>
+      <div class="svc-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z" fill="none" stroke="#F2B134" stroke-width="1.7" stroke-linejoin="round"/></svg><b>Estudios de eficiencia energética</b></div>
+      <div class="svc-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="none" stroke="#7FD6D3" stroke-width="1.7" stroke-linejoin="round"/></svg><b>Estudios de eficiencia hídrica</b></div>
+    </div>
+    <div class="svc" style="background: var(--card)">
+      <small style="color: var(--tone)">02 · Tecnologías más limpias</small>
+      <div class="svc-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h7v3h4V9h7M10 12v4h4v-4M7 9V5h10v4M12 16v5" fill="none" stroke="#0F5E63" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg><b>Aplicación de tecnologías más limpias<span>Para el mejoramiento de sistemas de acueducto, alcantarillado y sistemas energéticos.</span></b></div>
+    </div>
+    <div class="svc" style="background: #F2B134; color: #0B2326">
+      <small>03 · Clima y carbono</small>
+      <div class="svc-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-8 6 6 0 0 1 11.5 1.5A3.5 3.5 0 0 1 17.5 18z" fill="none" stroke="#0B2326" stroke-width="1.7" stroke-linejoin="round"/></svg><b>Medición de huella de carbono</b></div>
+      <div class="svc-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l6 6 4-4 6 6M20 10v4h-4" fill="none" stroke="#0B2326" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Formulación de procesos de descarbonización institucional</b></div>
+    </div>
+    <div class="svc" style="background: #0B2326; color: #fff">
+      <small style="color: #7FD6D3">04 · Capital natural</small>
+      <div class="svc-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20c0-9 6-15 15-15 0 9-6 15-15 15zM5 20l8-8" fill="none" stroke="#7FD6D3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Valoración económica de servicios ecosistémicos</b></div>
+      <a class="svc-row" href="#siembra"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-7M12 14c-4 0-6-3-6-6 3 0 6 2 6 6zM12 12c0-4 3-6 6-6 0 3-2 6-6 6z" fill="none" stroke="#7FD6D3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Logística para campañas de siembra de árboles<span style="color: #7FD6D3">Ver Siembra Amor →</span></b></a>
+    </div>
+  </div>
+  <div class="pad section" style="padding-top: 32px">
+    <span class="eyebrow">Cómo trabajamos</span>
+    <ol class="timeline" style="margin: 0">
+      <li><div class="rail"><b style="background:#5BC0BE;color:#0B2326">1</b><i></i></div><div class="txt"><strong>Levantamiento y medición</strong><span>Recogemos información y medimos en campo con equipos especializados.</span></div></li>
+      <li><div class="rail"><b style="background:var(--tone);color:#fff">2</b><i></i></div><div class="txt"><strong>Estudio e informe técnico</strong><span>Eficiencia, inventario de gases de efecto invernadero o valoración, según el servicio.</span></div></li>
+      <li><div class="rail"><b style="background:#0B2326;color:#fff">3</b><i></i></div><div class="txt"><strong>Priorización</strong><span>Definimos las tecnologías y estrategias con mejor resultado para su caso.</span></div></li>
+      <li><div class="rail"><b style="background:#F2B134;color:#0B2326">4</b></div><div class="txt"><strong>Implementación</strong><span>Suministro e instalación de las tecnologías priorizadas, con actas de entrega.</span></div></li>
+    </ol>
+    <div class="chips"><span>Informes técnicos</span><span>Inventario de GEI</span><span>Estrategia de descarbonización</span><span>Informe de valoración</span><span>Actas de entrega</span></div>
+  </div>
+  <div class="pad section" style="padding-top: 32px">
+    <span class="eyebrow">Así medimos y mejoramos</span>
+    <div class="video-box landscape"><video data-autoplay src="video/estudios-paneles.mp4" poster="img/estudios-paneles.jpg" muted loop playsinline preload="none" aria-label="Video de un sistema solar fotovoltaico instalado sobre una cubierta"></video></div>
+    <div class="photos">
+      <img class="wide" src="img/estudios-rio-mira.jpg" alt="Profesional midiendo la profundidad de un río con una mira" loading="lazy">
+      <img src="img/estudios-rio-cinta.jpg" alt="Equipo tendiendo una cinta métrica a lo ancho de un río" loading="lazy">
+      <img src="img/estudios-arbol.jpg" alt="Profesionales midiendo el tronco de un árbol" loading="lazy" style="object-position: 50% 40%">
+      <img class="wide" src="img/estudios-tecnologia.jpg" alt="Cuarto técnico con filtros, bomba dosificadora, controladores y tuberías instaladas" loading="lazy" style="object-position: 40% 50%">
+    </div>
+    <p class="footnote">Créditos de imagen: U.S. Department of Agriculture (CC BY 2.0).</p>
+  </div>
+  <div class="pad cta-wrap"><a class="btn cta" href="#contacto">Solicitar un estudio</a></div>
+</section>
+
+<!-- ================= SIEMBRA AMOR ================= -->
+<section class="screen" id="siembra" hidden aria-label="Siembra Amor">
+  <nav class="topnav pad" aria-label="Líneas de trabajo" style="background: rgba(247,242,238,0.96)">
+    <a class="back" href="#inicio" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#uniformando">Uniformes</a><a href="#eventos">Eventos</a><a href="#obras">Obras</a><a href="#estudios">Estudios</a><a href="#siembra" aria-current="page">Siembra</a>
+  </nav>
+  <div class="hero" style="height: 420px"><img src="img/siembra-grupo.jpg" alt="Equipo de COMFACESAR sembrando un árbol en una jornada de siembra" style="object-position: 50% 62%"><div class="shade"></div>
+    <div class="cap"><span class="eyebrow" style="color: #F9C9D5">Línea 05 · Ley 2173 de 2021</span><h1>Siembra Amor</h1></div></div>
+  <div class="pad section">
+    <p class="intro-strong">Talleres de sostenibilidad con siembra de árboles.</p>
+    <p class="lead">Acompañamos a su empresa a cumplir la Ley 2173 de 2021 con una jornada teórico-práctica en la que cada participante siembra dos árboles, con las especificaciones de la norma.</p>
+  </div>
+  <div class="pad section" style="padding-top: 30px">
+    <div class="law">
+      <span class="eyebrow" style="color: #F29BB0">Ley 2173 de 2021 · Ley del Árbol</span>
+      <h2>Una obligación que se convierte en propósito</h2>
+      <dl>
+        <div><dt>Quién</dt><dd>Medianas y grandes empresas</dd></div>
+        <div><dt>Cuánto</dt><dd>Mínimo 2 árboles por empleado, cada año</dd></div>
+        <div><dt>Dónde</dt><dd>En Áreas de Vida delimitadas por municipios y autoridades ambientales</dd></div>
+        <div><dt>Cómo se certifica</dt><dd>Certificado Siembra Vida Empresarial, tras verificar la siembra georreferenciada con especies nativas</dd></div>
+      </dl>
+      <small>Fuente: Ministerio de Ambiente, ABC Ley del Árbol.</small>
+    </div>
+  </div>
+  <div class="pad section" style="padding-top: 32px">
+    <span class="eyebrow" style="color: var(--tone)">La jornada</span>
+    <h2 style="font-size: 28px; line-height: 1.02; font-weight: 800">Aprender, sembrar y dejar huella</h2>
+    <ol class="timeline" style="margin: 8px 0 0">
+      <li><div class="rail"><b style="background:var(--tone);color:#fff">1</b><i></i></div><div class="txt"><strong>Taller de sostenibilidad</strong><span>Un espacio teórico-práctico para su equipo de trabajo.</span></div></li>
+      <li><div class="rail"><b style="background:#D46A8C;color:#fff">2</b><i></i></div><div class="txt"><strong>Siembra</strong><span>Cada participante siembra 2 árboles, con las especificaciones de la norma.</span></div></li>
+      <li><div class="rail"><b style="background:#6FAE2E;color:#fff">3</b><i></i></div><div class="txt"><strong>Protección</strong><span>Encerramiento y protección de los árboles sembrados.</span></div></li>
+      <li><div class="rail"><b style="background:#2F7A3B;color:#fff">4</b></div><div class="txt"><strong>Soportes</strong><span>Listados de asistencia y registro georreferenciado de la siembra.</span></div></li>
+    </ol>
+  </div>
+  <div class="pad section" style="padding-top: 32px">
+    <span class="eyebrow" style="color: var(--tone)">Todo incluido</span>
+    <div class="chips rose"><span>Plántulas</span><span>Tierra, abono, hidrorretenedor y tutor</span><span>Encerramiento y protección</span><span class="g">Mano de obra de hoyado y siembra</span><span class="g">Transporte y logística</span><span class="g">Refrigerio</span></div>
+    <div class="svc" style="background: var(--tone); color: #fff">
+      <small style="color: #F9C9D5">Dónde sembramos</small>
+      <b class="svc-big">En Áreas de Vida definidas por CORPOCESAR y en áreas públicas definidas por el municipio.</b>
+      <span style="font-size: 14px; color: rgba(255,255,255,0.85)">Con especies nativas, siguiendo los lineamientos técnicos de la autoridad ambiental.</span>
+    </div>
+    <div class="svc" style="background: #2F7A3B; color: #fff">
+      <small style="color: #C6E89B">Ecovivero institucional COMFACESAR</small>
+      <span style="font-size: 14px; color: rgba(255,255,255,0.88)">En el Colegio COMFACESAR – Rodolfo Campo Soto, donde propagamos plántulas.</span>
+      <div class="grid2" style="margin-top: 4px">
+        <div><b class="svc-num">600</b><span style="font-size: 13px; color: rgba(255,255,255,0.85)">participantes · meta 2027</span></div>
+        <div><b class="svc-num">1.200</b><span style="font-size: 13px; color: rgba(255,255,255,0.85)">árboles sembrados · meta 2027</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pad section" style="padding-top: 32px">
+    <span class="eyebrow" style="color: var(--tone)">Cada árbol, una historia</span>
+    <div class="photos">
+      <img class="wide" src="img/siembra-ninos.jpg" alt="Niños y un colaborador de COMFACESAR sembrando un árbol" loading="lazy" style="object-position: 50% 45%">
+      <img src="img/siembra-comunidad.jpg" alt="Niños y una colaboradora de COMFACESAR junto al árbol que acaban de sembrar" loading="lazy" style="object-position: 42% 45%">
+      <img src="img/siembra-campo.jpg" alt="Profesional sembrando una plántula en campo" loading="lazy">
+      <img class="wide" src="img/siembra-riego.jpg" alt="Colaborador regando árboles protegidos con encerramiento desde un carrotanque" loading="lazy" style="object-position: 50% 60%">
+    </div>
+    <div class="video-box"><video src="video/siembra-ley2173.mp4" poster="img/poster-siembra.jpg" controls playsinline preload="none" aria-label="Video explicativo sobre la Ley 2173 de 2021"></video></div>
+    <p class="footnote">La Ley 2173, explicada: video de un minuto con los pasos para cumplirla.</p>
+  </div>
+  <div class="pad cta-wrap"><a class="btn cta" href="#contacto">Agendar una jornada</a></div>
 </section>
 
 <!-- ================= CONTACTO ================= -->
@@ -2856,13 +3020,19 @@ p { margin: 0; }
   function markRegistered() { try { localStorage.setItem(REG_KEY, "1"); } catch (e) {} }
   var registered = isRegistered();
 
-  var SCREENS = ["registro", "inicio", "uniformando", "eventos", "obras", "contacto"];
+  var SCREENS = ["registro", "inicio", "uniformando", "eventos", "obras", "estudios", "siembra", "contacto"];
   function show(id, focusTop) {
     if (!registered) id = "registro";
     else if (SCREENS.indexOf(id) < 0 || id === "registro") id = "inicio";
     SCREENS.forEach(function (s) { document.getElementById(s).hidden = s !== id; });
     document.querySelectorAll("video").forEach(function (v) { if (!v.closest("#" + id)) v.pause(); });
     if (focusTop) window.scrollTo(0, 0);
+    var scr = document.getElementById(id);
+    var cur = scr.querySelector(".topnav a[aria-current]");
+    if (cur) { var nav = cur.parentNode; nav.scrollLeft = cur.offsetLeft - (nav.clientWidth - cur.offsetWidth) / 2; }
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      scr.querySelectorAll("video[data-autoplay]").forEach(function (v) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+    }
   }
 
   var wanted = location.hash.slice(1);
